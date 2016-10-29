@@ -1,0 +1,639 @@
+﻿<html dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+
+<title>What's in my tap water?</title>
+<meta name="description" content="Do you know how good the water where you live? Here you can figure it out"></meta>
+
+<!-- build:css css/tw.min.css -->
+<link href="static/front_end/css/bootstrap-cyborg.css" rel="stylesheet"></link>
+<link href="static/front_end/css/main.css" rel="stylesheet"></link>
+<!-- endbuild -->
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+</head>
+<body class="bg-gradient state-1" dir="ltr">
+	<div class="container">
+		<h1 style="display:none">What's in my tap water?</h1>
+		
+		<div class="choose-location">
+			<div class="well choose-location-well">
+				<form class="form-horizontal form-choose-location" role="form">
+					<div class="form-group select-city">
+						<label class="col-sm-2 control-label" for="city">City</label>
+						<div class="col-sm-10">
+							<select id="city" class="city form-control">
+								<option value="">Please select</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group select-district" style="display:none">
+						<label class="col-sm-2 control-label" for="district">county</label>
+						<div class="col-sm-10">
+							<select id="district" class="district form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group select-street" style="display:none">
+						<label class="col-sm-2 control-label" for="streetZone">Road</label>
+						<div class="col-sm-10">
+							<select id="streetZone" class="streetZone form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span> Continue</button>
+						</div>
+					</div>
+				</form>
+				<br>
+			</div>
+		</div>
+		
+		<div class="results" style="display:none">
+			<form class="form-inline form-choose-location-quick">
+				<div class="form-group">
+					<select class="city form-control"></select>
+				</div>
+				<div class="form-group select-district">
+					<select class="district form-control"></select>
+				</div>
+				<div class="form-group select-street">
+					<select class="streetZone form-control"></select>
+				</div>
+			</form>
+			
+
+			<ul class="nav nav-tabs responsive">
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="natrium">Sodium</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="kalium">Potassium</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="calcium">calcium</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="magnesium">magnesium</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="chlorid">Chloride</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="nitrat">nitrates</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="sulfat">Sulfate</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="hardness">Hardness</a></li>
+				<li class="nav-li-main"><a data-toggle="tab" data-attribute="info"><span class="glyphicon glyphicon-info-sign"></span> Questions and answers</a></li>
+			</ul>
+			
+			<div class="alert alert-warning result-without-value" style="display:none">
+				There are unfortunately no values ​​for this component.
+			</div>
+			
+			<div class="result-with-value">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="section section-explanation">
+							<div class="row gauge-glass-container" style="display:none">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-7">
+									<div class="attribute-description attribute-description-natrium" style="display:none">
+										<p> Sodium Regulates the water. </p>
+										<p> How much sodium for splat suitable, depends greatly on the individual from: athletes is sodium-rich water to recommend people with hypertension or infants shoulderstand low-sodium water (less than 20 milligrams per liter) drinking </p>-
+										<p> A lack of sodium overexpressed in physical weakness, nausea and muscle cramps through to circulatory collapse. </p>
+										<p> Recommended minimum of 550 mg of sodium per day. For a medically recommended low-sodium diet or for infants less than 20 mg / l of sodium are suitable. </p>
+									</div>
+									<div class="attribute-description attribute-description-kalium" style="display:none">
+										<p> Potassium keeps water and electrolyte balance in balance, Regulates blood pressure and is important for a regular heart attack and nerves. </p>
+										<p> To a potassium deficiency, it can cause vomiting after large losses of fluid, eg by prolonged diarrheal diseases Or prolonged use of drainage products. </p>
+										<p> A high potassium content in the blood can lead to heart failure Because potassium Inhibits the contraction of the heart muscle. </p>
+									</div>
+									<div class="attribute-description attribute-description-calcium" style="display:none">
+										<p>Calcium is needed for the formation of bones and teeth. Also for the muscles and clotting Calcium is important.</p>
+										<p>At calcium is often lacking, which can lead to a decrease in bone strength and thus to osteoporosis.</p>
+									</div>
+									<div class="attribute-description attribute-description-magnesium" style="display:none">
+										<p>Magnesium affects the energy metabolism, the interaction of nerves to muscles for protein synthesis and and bone mineralization. Furthermore, it is responsible for the activation of over 300 enzymes in the metabolism.</p>
+										<p>Too much magnesium is highly unlikely. In large quantities of mineral causes a softer stool.</p>
+									</div>
+									<div class="attribute-description attribute-description-chlorid" style="display:none">
+										<p>Chloride is a component of table salt and is therefore responsible for the regulation of water balance. Also for the nerves, the heart and muscles, as well as acid-base balance chloride is important.</p>
+										<p>Since it occurs in many foods, more than enough chloride is usually added. A permanent oversupply of chloride can cause high blood pressure.</p>
+									</div>
+									<div class="attribute-description attribute-description-nitrat" style="display:none">
+										<p>Nitrate is converted to nitrite in the body toxic. In addition, may arise from nitrites carcinogenic nitrosamines.</p>
+										<p>The nitrite itself may cause an oxygen deficiency of all organs and tissues. Infants are particularly vulnerable for this.</p> 
+										<p>Therefore, the limit value in mineral water is 50 mg / l. The nitrate levels in drinking water contained in the region are having 5 to 38 mg / l below the limit and are therefore classified as harmless.</p>
+										<p>For comparison: Bodensee-water contains only 4 mg of nitrate per liter.</p> 
+									</div>
+									<div class="attribute-description attribute-description-sulfat" style="display:none">
+										<p>Sulfate promote digestion, even laxative from a level of 1200 mg / l.</p>
+										<p>Contains a mineral more than 1200 mg / l, while high accounts Trat ions of minerals such as magnesium, calcium, fluoride, hydrogen and carbon dioxide, it is referred to as medicinal water.</p>
+										<p>However, infants and patients with digestive tract diseases and tendency to form uric acid stones should little sulphate to take (content &lt;240 mg / l).</p>
+										<p>But even with little water sulfate has something good: It will taste usually perceived positively. High sulfate contents however express themselves in a sweet and bitter taste.</p>
+									</div>
+									<br>
+									<p><button type="button" class="btn btn-warning switch-to-section hidden-xs" data-section="compare"><span class="glyphicon glyphicon-chevron-right"></span> Compared with mineral water</button></p>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5">
+									<svg class="gauge-glass-img pull-right" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 186 837" preserveaspectratio="xMinYMin meet">
+										<text class="gauge-unit" x="78" y="175" text-anchor="left">mg / l</text> <path class="gauge-glass" d="M145.993,832.667H38.398
+											c-16.112,0-15.916-16.613-15.916-16.613V158.107c-8.89,0-16.094-7.203-16.094-16.092v-7.179c0-8.887,7.204-16.094,16.094-16.094
+											h139.661c8.887,0,16.094,7.207,16.094,16.094v7.179c0,8.889-7.207,16.092-16.094,16.092l-0.178,657.84
+											C161.966,815.947,162.999,832.667,145.993,832.667z"></path> <g class="gauge-values"><defs><clippath id="cut-off-top"><rect class="gauge-value-bubble-cut" width="116" height="0" x="34" y="822"></rect></clippath> <pattern id="range-indicator" width="8" height="8" x="8" y="8" patternunits="userSpaceOnUse"><line class="range-indicator" x1="0" x2="8" y1="8" y2="0"></line></pattern></defs> <rect class="gauge-value" width="115" height="0" x="34.5" y="822"></rect><path class="gauge-value-bubbles" clip-path="url(#cut-off-top)" d="M149.469,324.376H34.005v482.118c0,0-0.174,14.819,14.195,14.819h86.875
+												c15.169,0,14.247-14.912,14.247-14.912L149.469,324.376z M73.76,741.827c-3.763,0-6.814-3.05-6.814-6.813s3.052-6.813,6.814-6.813
+												c3.764,0,6.812,3.05,6.812,6.813S77.524,741.827,73.76,741.827z M105.182,801.029c-11.289,0-20.439-9.15-20.439-20.439
+												c0-11.288,9.15-20.439,20.439-20.439c11.29,0,20.441,9.151,20.441,20.439C125.623,791.879,116.472,801.029,105.182,801.029z
+												 M117.668,739.558c-9.198,0-16.653-7.457-16.653-16.653s7.455-16.658,16.653-16.658c9.196,0,16.653,7.462,16.653,16.658
+												S126.864,739.558,117.668,739.558z"></path><rect class="gauge-value-2" width="115" height="0" x="34.5" y="822" fill="url(#range-indicator)"></rect></g> <g class="gauge-bubbles"><path d="M141.745,24.696c0,11.292-9.15,20.441-20.442,20.441c-11.287,0-20.437-9.149-20.437-20.441
+												c0-11.288,9.149-20.439,20.437-20.439C132.595,4.257,141.745,13.409,141.745,24.696z"></path><path d="M106.921,92.833c0,3.763-3.048,6.813-6.814,6.813c-3.763,0-6.813-3.05-6.813-6.813
+												c0-3.762,3.05-6.812,6.813-6.812C103.873,86.021,106.921,89.071,106.921,92.833z"></path><path d="M84.963,59.335c0,9.198-7.457,16.658-16.658,16.658c-9.192,0-16.651-7.459-16.651-16.658
+												c0-9.194,7.459-16.651,16.651-16.651C77.506,42.684,84.963,50.141,84.963,59.335z"></path></g> <g class="gauge-lines"></g><line class="average-indicator" x1="36" x2="68" y1="822" y2="822"></line>
+									</svg>
+									
+									<ul class="gauge-description gauge-glass-description pull-right list-unstyled" style="max-width:200px">
+										<li class="highlight"><strong>Value: <span class="gauge-value"></span> mg / l</strong></li>
+										<li>Limit value <span class="gauge-legal-limit"></span></li>
+										<li>Average: <span class="gauge-average-value"></span> mg / l<br><small>(Heilbronn, red line)</small></li>
+										<li class="gauge-daily-dosis-container">Daily requirement: <span class="gauge-daily-dosis">~</span></li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="row gauge-bar-container" style="display:none">
+								<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+									<p>The water hardness indicates how hard or soft a water. The more calcium and magnesium contained in a water, the harder it is.</p>
+									<p>Hard water can cause lime stains in kitchen and bathroom. Because of its high calcium and magnesium content, it is healthier than soft water.<br>(Calcium: structure of bones and teeth, magnesium: building muscles and nerves)</p> 
+								</div>
+								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+									<div style="padding-right:34px">
+										<img src="/static/front_end/img/haushalt.svg" class="pull-right hidden-xs">
+										<table class="table table-gauge-description gauge-description gauge-bar-description">
+											<tr>
+												<th style="border:none"><strong class="highlight">Value</strong></th>
+												<td style="border:none"><strong class="highlight">That means that</strong></td>
+											</tr>
+											<tr>
+												<th>Residual alkalinity</th>
+												<td>That means that</td>
+											</tr>
+											<tr>
+												<th>Area</th>
+												<td><span class="gauge-value-label"></span></td>
+											</tr>
+											<tr>
+												<th>Average<br><small>Heilbronn</small></th>
+												<td>That means that</td>
+											</tr>
+										</table>
+										
+										<p><br></p>
+										<svg class="gauge-bar-img" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 750 136" preserveaspectratio="xMinYMin meet">
+											<defs>
+												<pattern id="hardness-range-indicator" width="6" height="6" x="6" y="6" patternunits="userSpaceOnUse">
+													<line class="range-indicator-bar" x1="0" x2="6" y1="6" y2="0"></line>
+												</pattern>
+											</defs>
+											
+											<g class="gauge-bars"></g>
+											<g class="gauge-bar-labels"></g>
+											
+											<g class="gauge-value-indicators">
+												<rect class="gauge-bar-range-indicator" width="25" height="40" x="63.5" y="64" fill="url(#hardness-range-indicator)"></rect>
+												<circle class="gauge-bar-ball" cx="63.5" cy="84" r="13"></circle>
+											</g>
+										</svg>
+									</div>
+								</div>
+							</div>
+							
+							<p><br></p>
+							<p><button type="button" class="btn btn-warning switch-to-section hidden-md hidden-lg hidden-sm" data-section="compare"><span class="glyphicon glyphicon-chevron-right"></span> Compared with mineral water</button></p>
+						</div>
+						
+						<div class="section section-compare" style="display:none">
+							<div class="row">
+								<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 compare-nav">
+									<button type="button" class="btn btn-primary btn-lg btn-block active" data-water="volvic">Volvic</button>
+									<button type="button" class="btn btn-primary btn-lg btn-block" data-water="wueteria">Wüteria Sacred Fountain</button>
+									<button type="button" class="btn btn-primary btn-lg btn-block" data-water="teusser">Teusser Naturell</button>
+									<button type="button" class="btn btn-primary btn-lg btn-block" data-water="vittel">Vittel</button>
+									<button type="button" class="btn btn-primary btn-lg btn-block" data-water="self" style="margin-top:2em">My tap water</button>
+									
+									<p><br></p>
+								</div>
+								<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+									<div class="row">
+										<div class="col-lg-3 col-md-3 hidden-sm hidden-xs"></div>
+										<div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+											<div class="gauge-description gauge-glass-description" style="margin-top:38px">
+												<table class="table table-gauge-description">
+													<tr>
+														<th style="border:none"><strong class="comparison-water-label highlight">1 |</strong></th>
+														<td style="border:none;min-width:80px"><strong class="comparison-water-value highlight">1 |</strong></td>
+													</tr>
+													<tr>
+														<th>My tap water</th>
+														<td><span class="comparison-water-value-self"></span><br><small>(Red line)</small></td>
+													</tr>
+													<tr class="gauge-daily-dosis-container">
+														<th>daily requirement</th>
+														<td><span class="gauge-daily-dosis">Sep 17 2012</span></td>
+													</tr>
+												</table>
+												
+												<br><br>
+												<div class="attribute-description attribute-description-natrium" style="display:none">
+													<p>Sodium regulates the water balance.</p>
+													<p>Athletes is sodium-rich water to recommend people with hypertension or infants should drink low-sodium water.<br><em>(Less than 20 mg / l)</em></p>
+												</div>
+												<div class="attribute-description attribute-description-kalium" style="display:none">
+													<p>Potassium keeps the water and electrolyte balance in balance, regulates blood pressure and is important for a regular heartbeat and nerve.</p>
+												</div>
+												<div class="attribute-description attribute-description-calcium" style="display:none">
+													<p>Calcium is needed for the formation of bones and teeth.</p>
+													<p>Also for the muscles and clotting Calcium is important.</p>
+												</div>
+												<div class="attribute-description attribute-description-magnesium" style="display:none">
+													<p>Magnesium affects the energy metabolism, the interaction of nerves to muscles for protein synthesis and and bone mineralization.</p>
+												</div>
+												<div class="attribute-description attribute-description-chlorid" style="display:none">
+													<p>Chloride is important for regulation of the water balance, the nerves, the heart and muscles, as well as acid-base balance.</p>
+													<p>Since chloride is a component of common salt, is usually taken in more than sufficient chloride in the diet.</p>
+												</div>
+												<div class="attribute-description attribute-description-nitrat" style="display:none">
+													<p>Nitrate is converted to nitrite in the body toxic. In addition, may arise from nitrites carcinogenic nitrosamines.</p>
+													<p>The nitrite itself may cause an oxygen deficiency of all organs and tissues. Infants are particularly vulnerable for this.</p>
+												</div>
+												<div class="attribute-description attribute-description-sulfat" style="display:none">
+													<p>Sulfate promote digestion, even laxative from a level of 1200 mg / l.</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+											<svg class="bottle-img pull-right" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 258 837" preserveaspectratio="xMinYMin meet">
+												<text class="gauge-unit" x="78" y="220" text-anchor="left"></text>
+											
+												<g class="gauge-values">
+													<defs>
+														<clippath id="bottle-cut-off-top">
+														 	<rect class="gauge-value-bubble-cut" width="258" height="0" x="0" y="822"></rect>
+												 		</clippath>
+													</defs>
+													
+													<rect class="gauge-value" width="216" height="0" x="20" y="822"></rect>
+													<path class="gauge-value-bubbles" clip-path="url(#bottle-cut-off-top)" fill="#FFFFFF" d="M232.801,703.685c-3.221-3.223-6.781-2.344-6.781-10.338c0-4.859,8.305-2.204,8.982-17.284
+														c0.678-15.082-0.407-147.848-0.407-147.848l-214.461-0.101c0,16.436,0,152.186,0,152.186s-1.015,4.405,5.085,7.962
+														c2.542,1.187,4.915,3.391,4.407,6.781c-0.509,3.386-3.898,4.236-5.424,6.606c-1.524,2.372-4.915,2.372-4.576,16.776l0.341,28.638
+														c0,0,3.047,32.195,16.604,46.261c13.558,14.065,27.112,27.79,48.805,26.604c21.688-1.187,35.415-18.641,47.448-13.219
+														c12.03,5.422,33.722,20.335,53.716,9.999c19.994-10.338,49.985-18.302,49.985-84.05
+														C236.526,708.768,236.021,706.903,232.801,703.685z M94.626,716.209c-10.069,0-18.236-8.164-18.236-18.234
+														c0-10.071,8.167-18.236,18.236-18.236c10.073,0,18.236,8.165,18.236,18.236C112.863,708.045,104.7,716.209,94.626,716.209z
+														 M123.351,764.837c-3.36,0-6.079-2.719-6.079-6.077c0-3.357,2.719-6.078,6.079-6.078c3.354,0,6.077,2.721,6.077,6.078
+														C129.428,762.118,126.706,764.837,123.351,764.837z M168.546,743.735c-8.206,0-14.86-6.653-14.86-14.857
+														c0-8.205,6.654-14.856,14.86-14.856s14.856,6.651,14.856,14.856C183.403,737.082,176.752,743.735,168.546,743.735z"></path>
+												</g>
+		
+												<g class="gauge-lines"></g>
+												
+												<line class="average-indicator" x1="20" x2="60" y1="819" y2="819"></line>
+											
+												<g>
+													<path fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" d="M6.104,719.749l0.382,32.207c0,0,3.43,36.212,18.676,52.031
+														c15.249,15.819,30.495,31.257,54.89,29.922c24.395-1.335,39.833-20.964,53.365-14.866c13.529,6.1,37.927,22.871,60.414,11.246
+														c22.492-11.626,56.225-20.584,56.225-94.532c0-26.871-0.57-28.969-4.193-32.589c-3.622-3.623-7.623-2.635-7.623-11.626
+														c0-5.467,9.34-2.479,10.1-19.439c0.765-16.963,0-366.307,0-366.307s0-4.384-2.477-6.099s-4.575-0.762-4.575-10.864
+														c0-4.574,0-5.526,0-5.526s-0.571-3.241,3.052-3.623c3.618-0.38,4.953-9.147,4-17.914c-0.952-8.767-11.623-40.023-57.366-81.191
+														c-13.246-13.244-17.916-17.343-17.916-17.343H83.672c0,0-40.024,35.259-55.65,57.367c-15.628,22.109-28.971,46.123-17.154,58.128
+														c1.526,1.526,3.812,0,3.812,9.911c0,3.241-0.38,4.765-0.38,4.765s1.144,2.479-2.479,4.002c-3.621,1.526-5.146,0.573-5.146,19.06
+														s0,360.399,0,360.399s-1.142,4.955,5.719,8.956c2.859,1.335,5.526,3.813,4.956,7.625c-0.573,3.812-4.384,4.765-6.099,7.432
+														C9.536,703.548,5.722,703.548,6.104,719.749z"></path>
+													<path fill="#FFFFFF" d="M177.759,155.542c0,0.842-0.854,1.524-1.902,1.524H80.555c-1.047,0-1.899-0.682-1.899-1.524v-4.701
+														c0-0.842,0.852-1.524,1.899-1.524h95.302c1.048,0,1.902,0.682,1.902,1.524V155.542z"></path>
+													<path fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" d="M173.188,96.629c0-0.748-0.683-1.351-1.528-1.351H84.627
+														c-0.842,0-1.523,0.604-1.523,1.351v45.5c0,0.746,0.682,1.352,1.523,1.352h87.033c0.846,0,1.528-0.606,1.528-1.352V96.629z"></path>
+													<path fill="#2a9fd6" d="M98.822,25.035c0,10.071,8.168,18.234,18.236,18.234c10.074,0,18.235-8.163,18.235-18.234
+														s-8.161-18.236-18.235-18.236C106.99,6.799,98.822,14.964,98.822,25.035z"></path>
+													<path fill="#2a9fd6" d="M116.198,113.161c0,3.358,2.719,6.077,6.079,6.077c3.353,0,6.075-2.719,6.075-6.077
+														c0-3.357-2.723-6.079-6.075-6.079C118.917,107.082,116.198,109.803,116.198,113.161z"></path>
+													<path fill="#2a9fd6" d="M134.057,72.761c0,8.205,6.658,14.858,14.86,14.858c8.206,0,14.86-6.654,14.86-14.858
+														c0-8.204-6.654-14.856-14.86-14.856C140.715,57.906,134.057,64.557,134.057,72.761z"></path>
+												</g>
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p><br></p>
+							<p><br></p>
+							<p><button type="button" class="btn btn-warning switch-to-section" data-section="explanation">Back</button></p>
+							<p><br></p>
+							<p><small>Exemplary two nationally known water and two water from the district of Heilbronn were selected. All four are still mineral.</small></p>
+						</div>
+						
+						<div class="section section-map" style="display:none">
+							<div class="alert alert-warning">The card is currently available only for the city of Heilbronn available and is still in an experimental stage.</div>
+							
+							<p>The streets with the lowest values ​​are deep blue, the streets with the highest values ​​dyed red.</p>
+						
+							<svg class="map-img" style="width:600px;height:600px" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 1170 1170" preserveaspectratio="xMinYMin meet">
+								<g class="areas"></g>
+								<g class="zones"></g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="info-container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">information about <span class="zone-id"></span></h4>
+							</div>
+							<div class="panel-body">
+								<p class="zone-year-container">
+									The data are from the year <span class="zone-data-year"></span>
+								</p>
+								<p>
+									<span class="zone-description"></span>
+								</p>
+							</div>
+						</div>
+					
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseOne" data-toggle="collapse" data-parent="#accordion"> Where does our drinking water? </a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>In the city district, there are about 40 springs and wells, district is around 130th</p>
+										<p>Since the Heilbronner water but charged very hard and strong with toxic nitrate, buys the city for 43 years of water from Lake Constance (Bodensee Zweckverband water supply).</p>
+										<p>Previously, the city covered the water needs about 60 to 70 percent self-sufficient water. This has turned into its opposite. The proportion of water from Lake Constance is now at 80 to 85 percent.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion"> Why miss some municipalities on the addition of water from Lake Constance? </a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>It is cheaper for local authorities when they take their drinking water exclusively from its own sources.</p>
+										<p>The municipality Jagsthausen example provides its residents with 100 percent self-sufficient water.</p>
+										<blockquote>
+											<p>"We have ordinary water, which is hard indeed. But we see no reason for an admixture of extraneous water as do other municipalities "</p>
+											<footer>Mayor Roland Holder</footer>
+										</blockquote>
+										<p>Complaints from the community there would be no, many residents have a water softener. Links to the Bodensee water is connected in the case of Jagsthausen with high investment costs and not an issue.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseThree" data-toggle="collapse" data-parent="#accordion"> Why does not taste as good as my drinking bottled water? </a>
+									</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>The taste of water is determined by the minerals contained in it.</p>
+										<p>Water with much sodium and potassium, is perceived as salty taste. Sodium-poor water - including Heilbronn drinking water - contrast tastes moderates.</p>
+										<p>An unpleasant taste can occur when the pipes are contaminated in the building. Stadtwerke check the quality of drinking water only up to the respective front door. In the house, the responsibility rests with the building owner.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseFour" data-toggle="collapse" data-parent="#accordion"> What is the hardness of water for me?</a>
+									</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>Wherever hard water flows slowly or is heated to about 60 degrees, lime settles. In the kitchen and bathroom so arise lime stains, washing clothes more detergent is needed, some household appliances must be decalcified regularly. This is from a water hardness of 21st</p>
+										<p>In Heilbronn, the upper limit of the water hardness of 18 degrees. Healthwise hard water is safe to the contrary, because of the high calcium and magnesium content, it is healthier than soft water.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseFive" data-toggle="collapse" data-parent="#accordion"> Why is there no soft water with us?</a>
+									</h4>
+								</div>
+								<div id="collapseFive" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>Most of Heilbronner drinking fountains are located in the rock layer Gipskeuper, who is responsible for the very high magnesium and calcium content in the water. Since these two minerals determine the hardness of the water, there are in Heilbronn soft water.</p>
+										<p>The Heilbronner water has a hardness of up to 28 degrees of German hardness, in some of the 40 well water flows at 30 degrees German hardness.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseSix" data-toggle="collapse" data-parent="#accordion"> How do the different degrees of hardness?</a>
+									</h4>
+								</div>
+								<div id="collapseSix" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>The taste of water is determined by the minerals contained in it.</p>
+										<p>Drinking water containing varying amounts of the minerals calcium and magnesium - depending on whether it is surface water, ground water or spring water.</p>
+										<p>The more calcium and magnesium in the water, the harder it is.</p>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseSeven" data-toggle="collapse" data-parent="#accordion"> Unit ° dH - "degree of German hardness"?</a>
+									</h4>
+								</div>
+								<div id="collapseSeven" class="panel-collapse collapse">
+									<div class="panel-body">
+										<p>The unit ° dH (German hardness) is outdated, but in practice common still. In addition ° dH millimoles per liter (mmol / l) was used.</p>
+										<p>Industries:</p>
+										<ul>
+											<li>soft: less than 1.5 millimoles of calcium carbonate per liter (equivalent to less than 8.4 degrees of German hardness)</li>
+											<li>medium: 1.5 to 2.5 millimoles of calcium carbonate per liter (equivalent to 8.4 to 14 degrees of German hardness)</li>
+											<li>hard: more than 2.5 millimoles of calcium carbonate per liter (equivalent to more than 14 degrees of German hardness)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseEight" data-toggle="collapse" data-parent="#accordion"> Related Links</a>
+									</h4>
+								</div>
+								<div id="collapseEight" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="http://www.stimme.de/3047311">Heilbronner Water: Rich in minerals (Stimme.de, 03/22/2014)</a>
+											<li><a href="http://www.gesetze-im-internet.de/bundesrecht/trinkwv_2001/gesamt.pdf">drinking water Regulation</a></li>
+											<li><a href="http://www.mlr.baden-wuerttemberg.de/mlr/allgemein/Liste d Untersuchungsstellen-Trinkw.pdf">List of laboratories to study the quality of drinking water</a></li> 
+											<li><a href="http://www.umweltbundesamt.de/sites/default/files/medien/378/publikationen/rund_um_das_trinkwasser.pdf">Brochure of the Federal Environment Agency "Around the Water"</a></li>
+											<li><a href="https://www.stadtwerke-heilbronn.de/index/hsw/hsw_wasser.html">Stadtwerke Heilbronn, Section Water</a></li>
+										</li></ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a href="#collapseNine" data-toggle="collapse" data-parent="#accordion"> Sources</a>
+									</h4>
+								</div>
+								<div id="collapseNine" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li>Heilbronner supply Gmbh</li>
+											<li>German Nutrition Society</li>
+											<li>Federal Institute for Risk Assessment</li>
+											<li>Websites of municipalities in Heilbronn</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="footer">
+			<a data-toggle="modal" data-target="#contactDialog"><span class="glyphicon glyphicon-envelope"></span></a> <a data-toggle="modal" data-target="#contactDialog">Contact</a> | <a data-toggle="modal" data-target="#aboutDialog"><span class="glyphicon glyphicon-question-sign"></span></a> <a data-toggle="modal" data-target="#aboutDialog">About the Project</a> | <a data-toggle="modal" data-target="#attributionDialog"><span class="glyphicon glyphicon-user"></span></a> <a data-toggle="modal" data-target="#attributionDialog">Contributors</a> | <a data-toggle="modal" data-target="#imprintDialog"><span class="glyphicon glyphicon-info-sign"></span></a> <a data-toggle="modal" data-target="#imprintDialog">imprint</a>
+		</footer>
+	</div>
+
+	<div class="modal fade" id="aboutDialog" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Sep 17 2012</button>
+					<h4 class="modal-title">About &amp; Contacts</h4>
+				</div>
+				<div class="modal-body">
+					<div style="max-height:400px;overflow:scroll">
+						<h4 style="margin-top:0">As the water-Tool has arisen</h4>
+						<p>Drinking water is considered the best controlled food in Germany. And yet we know very little about the water that comes out of our taps. Many municipalities publish the study results on its websites. these data are available for the citizens - but not tangible. What does a hardness of 9? Are 200 milligrams calcium per liter lot or a little? How rich in minerals is our tap water, can only be seen when we compare it with water from the market.</p>
+						<p>This is now possible for the region Heilbronn. The idea came in late February at the Open Data Day in Heilbronn. Although many data were available online, they had to be placed in a machine-readable form first. Many municipalities only publish PDF files with the annual averages. These are not machine-readable, and had to be carried by the editors.  To program the application, a single record is necessary. On some websites of municipalities the information sought in the drinking water were hidden on sub-pages, outdated or incomplete. In many towns and cities, we have therefore requested the data via email. Only three municipalities came so far no response.</p>
+						<p>It was surprising to us how different the drinking water is composed in the region. Mostly the mineral content within the village differs greatly - namely when there are different service areas. Municipalities as Bad Friedrichshall, Neckarsulm or Zaberfeld are divided into several areas. This was a particular challenge in the data collection phase. The areas had partly be assigned to the roads, so that the user gets the correct values ​​for its own road appears. The drinking water prices offers the Statistical Office a complete data set for all counties - for drinking water quality, there is such public record does not exist.</p>
+						<p>The application of these zugrundliegende record was therefore a complex research project. Not less burdensome were implementation and visualization for the developer Felix Ebert, Ulrich Holly and Tom Goerner. A large role was played by user-friendliness and design. From dry figures an interactive graphic to be built, through which the user gets access to his drinking. For the graphical elements Heiko was not responsible.</p> 
+						<p>The water application is a beta version. In particular, the data collection can never be completed. Many municipalities publish soon the current average annual values ​​- they should also be updated in our application. We are dependent on the cooperation of the town halls and have set up a contact region. Due to the large data set may cause erroneous information. Who discovered Auffälligkeifen can contact us anytime. We welcome all feedback.</p>
+						<p>Data and code of the application are open to the public and available under an open source license.</p>
+						<p>You're interested in more open data applications or even want to participate? In Heilbronn we meet regularly in the context of <a href="http://codefor.de">code for Germany</a> to jointly implement open data projects - we would be pleased about your visit!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="attributionDialog" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Sep 17 2012</button>
+					<h4 class="modal-title">Contributors</h4>
+				</div>
+				<div class="modal-body">
+					<p><strong>Editorial implementation</strong></p>
+					<p>
+						Vanessa Wormer ( <a href="https://twitter.com/remrow" target="_blank">@remrow</a> )<br>
+						Isabelle Müller ( <a href="https://twitter.com/isa_mue" target="_blank">@isa_mue</a> )
+					</p>
+					
+					<p><strong>Design</strong></p>
+					<p>
+						Heiko Not ( <a href="https://twitter.com/HeikoNicht" target="_blank">@HeikoNicht</a> )
+					</p>
+					
+					<p><strong>Programming</strong></p>
+					<p>
+						Felix Ebert ( <a href="https://twitter.com/femeb" target="_blank">@femeb</a> )<br>
+						Ulrich piercing<br>
+					</p>
+					
+					<p><strong>cooperation</strong></p>
+					<p>
+						Alexander Walther ( <a href="https://twitter.com/alexplus_de" target="_blank">@alexplus_de</a> )<br>
+						Tom Goerner<br>
+						Gerd Hoffmann
+					</p>
+					<br>
+					<p>In Heilbronn we meet regularly in the context of <a href="http://codefor.de">code for Germany</a> to jointly implement open data projects - we would be pleased about your visit!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="imprintDialog" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Sep 17 2012</button>
+					<h4 class="modal-title">Imprint</h4>
+				</div>
+				<div class="modal-body">
+					<address>
+						IF-Core IT Services GmbH<br>
+						Clemens Haller Str. 5<br>
+						74254 Offenau<br>
+						t                Jan 15 2013                            15:40<br>
+						Fax: +55 21 3208 1904<br>
+						Email: info <!--nospam@blockscanners121987.de--> @ if-core.de<br>
+						<br>
+						HRB 108620 (Amtsgericht Stuttgart)<br>
+						VAT Reg. DE252314620<br>
+						CEO: Felix Ebert<br>
+					</address>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="contactDialog" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Sep 17 2012</button>
+					<h4 class="modal-title">Contact</h4>
+				</div>
+				<div class="modal-body">
+					<p>We appreciate feedback:</p>
+
+					<p>E-mail address: water <!--nospam@blockscanners123987.de--> @ opendatalab.de - Thank you!</p>
+					<p>Due to the numerous data it may occasionally give erroneous information. Have you found an error? Write us!</p>
+					<p>Or you are an employee of a municipality and want your data Enter? Just send us your data by e-mail.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- build:js js/tw.min.js -->
+	<script src="static/front_end/lib/jquery.js"></script>
+	<script src="static/front_end/lib/bootstrap.js"></script>
+	<script src="static/front_end/lib/d3.js"></script>
+	<script src="static/front_end/lib/colorbrewer.js"></script>
+	<script src="static/front_end/js/app.js"></script>
+	<script src="static/front_end/js/utils.js"></script>
+	<script src="static/front_end/data/locations.js"></script>
+	<script src="static/front_end/data/zones.js"></script>
+	<script src="static/front_end/data/mineralwaesser.js"></script>
+	<script src="static/front_end/js/gauge.js"></script>
+	<script src="static/front_end/js/comparison.js"></script>
+	<script src="static/front_end/js/map.js"></script>
+	<!-- endbuild -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			tw.init();
+		});
+	</script>
+</body>
+</html>
