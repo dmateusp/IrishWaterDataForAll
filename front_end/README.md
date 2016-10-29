@@ -1,56 +1,55 @@
-Frontend der Trinkwasser-Visualisierung
-=======================
+Frontend of drinking water visualization
+==========================================
 
-Das Frontend besteht aktuell aus drei Bestandteilen:
+The front end currently consists of three components:
 
-- Auswahl eines Orts
-- Anzeige der Trinkwasserwerte an einem Ort
-- Vergleich der Trinkwasserwerte mit Mineralwasser 
+- Select a location
+- Display of drinking water values ​​in one place
+- Comparison of drinking water values ​​with mineral water
 
-Die dazugehörigen Daten befinden sich im Verzeichnis data/
+The corresponding data can be found in the directory data /
 
-## Auswahl eines Orts
+## Select a location
 
-Die Auswahl eines Ortes erfolgt aktuell über bis zu drei hierarchische Selectlisten und basiert auf den Daten in der Datei data/locations.js
+The selection of a location currently takes place via up to three hierarchical selectlists and is based on the data in the data / locations.js file
 
-Die erste Selectliste enthält immer alle Gemeindenamen, was der 1. Ebene in der Datei data/locations.js entspricht, genauer: `Object.keys(tw.data.locations)`
+The first select list always contains all the common names, which corresponds to the 1st level in the data / locations.js file, more precisely: `Object.keys (tw.data.locations)`
 
-Die zweite Selectliste listet meist Stadtteile, was der 2. Ebene in der Datei data/locations.js entspricht, genauer: `Object.keys(tw.data.locations[city])`
-Für manche Gemeinden gibt es keine weitere Unterteilung, so dass die zweite Selectliste in diesen Fällen nicht benötigt wird. Zudem wird die zweite Selectliste übersprungen, wenn die weitere Unterteilung nicht nach Stadtteilen, sondern nach Straßen erfolgt (Beispiel: Heilbronn)
+The second select list usually lists districts, which corresponds to the second level in the data / locations.js file, more precisely: `Object.keys (tw.data.locations [city])`
+For some communities, there is no further subdivision, so the second select list is not needed in these cases. In addition, the second select list is skipped if the further subdivision is not by district, but by road (example: Heilbronn)
 
-Die dritte Selectliste listet meist Straßen (Beispiel: Heilbronn), was der 3. und 4. Ebene in der Datei data/locations.js entspricht. Die Straßen sind in der data/locations.js einzelnen Zonen zugeordnet (3. Ebene), die in der Selectliste als Zwischenüberschriften angezeigt werden.
+The third select list usually lists roads (example: Heilbronn), which corresponds to the 3rd and 4th level in the data / locations.js file. The roads are assigned to the individual zones (3rd level) in the data / locations.js, which are displayed as interim headings in the select list.
 
 
-## Anzeige der Trinkwasserwerte an einem Ort
+## Display the drinking water values ​​in one place
 
-Anhand der drei Selectlisten bei der Auswahl eines Orts wird eine Zonen-ID zusammengesetzt. Dieser besteht aus: Ort, Stadtteil und Zone der gewählten Straße getrennt mit Leerzeichen.
+A zone ID is composed of the three selectlists when selecting a location. This consists of: Place, district and zone of the selected street separated by spaces.
 
-Beispiel: Wählt der Nutzer als Ort Abstatt, als Stadtteil Kernstadt und als Straße Ahornstraße (Zone 2), so ergibt sich die Zonen-ID `Abstatt Kernstadt Zone 2`.
-Diese Zonen-ID entspricht nun stets einem Key in der Datei data/zones.js, worüber wir die Trinkwasserwerte für den gewählten Ort erhalten. 
+Example: If the user chooses Abstatt as the location, as a district of Kernstadt and as a street maple road (Zone 2), the zone ID is `Abstatt Kernstadt Zone 2`.
+This zone ID now always corresponds to a key in the data / zones.js file, which gives us the drinking water values ​​for the selected location.
 
 
 ## Redeployment
 
-Du möchtest diese Anwendung redeployen? Wir von Code for Heilbronn arbeiten gerade an einer überarbeiteten Version dieses Projekts, bis diese fertig ist kannst du aber so vorgehen:
+You want to redeploy this application? We at Code for Heilbronn are currently working on a revised version of this project, but until this is finished you can proceed as follows:
 
-* Erstelle einen Fork des Repositories
-* Tausche in der index.html die Überschrift, das Impressum und ggf. weitere Texte in den Dialogen aus - alle Texte befinden sich in dieser Datei.
-* Tausche die Daten in der Datei data/locations.js mit deinen Ortsnamen, Ortsteilen und Straßen aus (entsprechend der Beschreibung oben).
-* Tausche die Daten in der Datei data/zones.js mit deinen Trinkwasserwerten aus (entsprechend der Beschreibung oben).
+* Create a fork of the repository
+* Swap the headline, the imprint and possibly other texts in the dialogues - all texts are in this file.
+* Exchange the data in the data / locations.js file with your town names, districts, and streets (as described above).
+* Exchange the data in the data / zones.js file with your drinking water values ​​(as described above).
 
-Solltest du die Daten bereits in einer Excelliste gesammelt haben kann vllt. das converter Modul in diesem Repository für dich hilfreich sein, welches wir in Heilbronn zur automatischen Erzeugung der zwei JSON-Dateien verwendet haben.
+If you have already collected the data in an Excelliste vllt. The converter module in this repository will be helpful for you, which we used in Heilbronn for the automatic generation of the two JSON files.
 
-Sobald du mit den Änderungen fertig bist, kannst du im Hauptverzeichnis `grunt deploy` aufrufen - die JS und CSS Dateien werden dann minifiziert und anschließend das Verzeichnis dist/ im Branch gh-pages gepusht.
-Dein Fork ist dann bereits online abrufbar - die URL dazu findest du bei GitHub unter den Repository Settings.
+As soon as you are done with the changes, you can call `grunt deploy` in the main directory - the JS and CSS files are then minted and the directory dist / gh-pages is pushed.
+Your fork is then already available online - the URL can be found at GitHub under the Repository Settings.
 
-Um `grunt deploy` aufrufen zu können muss node.js installiert sein und einmal im Hauptverzeichnis `npm install` ausgeführt werden.
+To be able to call `grunt deploy`, node.js must be installed and run once in the main directory` npm install`.
 
-Oder lade ganz einfach alle Dateien in src/ auf einen Webserver deiner Wahl hoch.
+Or simply upload all files in src / to a web server of your choice.
 
 
-## Frontend lokal aufrufen
+## Call up the front-end locally
 
-In den meisten Fällen genügt es, die index.html einfach mit dem Browser zu öffnen.
+In most cases it is sufficient to open the index.html simply with the browser.
 
-Wenn du node.js installiert hast kannst du aber auch im Hauptverzeichnis `npm install` aufrufen und anschließend `grunt devserver`, um einen lokalen Entwicklungsserver zu starten (leider noch ohne Livereload)
-
+If you have installed node.js you can also in the main directory `npm install` call and then` grunt devserver` to start a local development server (unfortunately still without Livereload)
