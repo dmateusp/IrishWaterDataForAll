@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from water_data_api import views as views_api
+from front_end import views as views_front
 
 urlpatterns = [
+    url(r'^$', views_front.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', views_api.index, name='index'),
 ]
